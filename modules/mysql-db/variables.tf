@@ -23,8 +23,3 @@ variable "port" {
     type = number
     default = 3306
 }
-
-variable "subnet_ids" {
-    description = "The deploy subnet IDs for the database."
-    type = list(string)
-}
