@@ -32,5 +32,4 @@ variable "enable_autoscaling" {
 variable "server_text" {
     description = "The text to be displayed on the web page."
     type = string
-    default = "Hello World Default"
 }

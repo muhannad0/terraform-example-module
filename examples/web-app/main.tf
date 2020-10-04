@@ -18,5 +18,5 @@ module "web_app" {
 
     enable_autoscaling = false
 
-    server_text = "Hello Example v2"
+    server_text = var.server_text
 }
