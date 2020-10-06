@@ -4,17 +4,17 @@ variable "environment" {
 }
 
 variable "instance_type" {
-    description = "The type of instance to deploy. eg: t2.micro"
+    description = "The type of instance to deploy the app."
     type = string
 }
 
 variable "min_size" {
-    description = "The minimum number of instances to run in the cluster."
+    description = "The minimum number of instances to be running in the cluster."
     type = number
 }
 
 variable "max_size" {
-    description = "The maximum number of instances to run in the cluster."
+    description = "The maximum number of instances to be running in the cluster."
     type = number
 }
 
@@ -24,21 +24,14 @@ variable "desired_capacity" {
 }
 
 variable "enable_autoscaling" {
-    description = "Enable/Disable auto scaling based on defined rules."
+    description = "Option to enable/disable autoscaling based on preset rules."
     type = bool
     default = false
-}
-
-variable "server_port" {
-    description = "The port running web app service"
-    type = number
-    default = 8080
 }
 
 variable "server_text" {
     description = "The text to be displayed on the web page."
     type = string
-    default = "Hello World Default"
 }
 
 variable "mysql_config" {

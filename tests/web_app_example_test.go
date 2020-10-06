@@ -11,7 +11,7 @@ import (
 	"github.com/gruntwork-io/terratest/modules/test-structure"
 )
 
-const webAppExampleDir = "../examples/web-app"
+const webAppExampleDir = "../examples/web-app/standalone"
 
 func createWebAppOpts(t *testing.T, appDir string) *terraform.Options {
 	uniqueId := strings.ToLower(random.UniqueId())
@@ -25,6 +25,10 @@ func createWebAppOpts(t *testing.T, appDir string) *terraform.Options {
 			"max_size": 1,
 			"desired_capacity": 1,
 			"server_text": "Hello World Testing",
+			"mysql_config": map[string]interface{}{
+				"db_address": "mock-address-for-test",
+				"db_port": 3306,
+			},
 		},
 	}
 }
