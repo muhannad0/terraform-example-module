@@ -7,7 +7,7 @@ provider "aws" {
 }
 
 module "web_app" {
-    source = "../../modules/web-app"
+    source = "../../../modules/web-app"
 
     environment = var.environment
 
@@ -19,4 +19,6 @@ module "web_app" {
     enable_autoscaling = false
 
     server_text = var.server_text
+
+    mysql_config = var.mysql_config
 }

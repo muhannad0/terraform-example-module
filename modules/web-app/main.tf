@@ -16,6 +16,8 @@ data "template_file" "user_data" {
     vars = {
         server_text = var.server_text
         server_port = var.server_port
+        db_address = var.mysql_config.db_address
+        db_port = var.mysql_config.db_port
     }
 }
 

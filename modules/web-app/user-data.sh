@@ -6,5 +6,6 @@ chmod +x busybox-x86_64
 mv busybox-x86_64 /usr/local/bin/busybox
 cat > index.html <<EOF
 <h1>${server_text}</h1>
+<p>Database: ${db_address}:${db_port}</p>
 EOF
 nohup busybox httpd -f -p ${server_port} &
