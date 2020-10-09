@@ -3,11 +3,16 @@ terraform {
 }
 
 data "aws_vpc" "default" {
-  default = true
+    default = true
 }
 
 data "aws_subnet_ids" "all" {
-  vpc_id = data.aws_vpc.default.id
+    vpc_id = data.aws_vpc.default.id
+}
+
+data "aws_security_group" "default" {
+    vpc_id = data.aws_vpc.default.id
+    name = "default"
 }
 
 data "template_file" "user_data" {
@@ -183,9 +188,21 @@ resource "aws_security_group_rule" "allow_all_outbound" {
     cidr_blocks = local.any_ip
 }
 
+resource "aws_security_group_rule" "allow_db_inbound" {
+    type = "ingress"
+    security_group_id = data.aws_security_group.default.id
+
+    from_port = local.db_port
+    to_port = local.db_port
+    protocol = local.tcp_protocol
+    # cidr_blocks = local.any_ip
+    source_security_group_id = aws_security_group.instance.id
+}
+
 # Module local variables
 locals {
     http_port = 80
+    db_port = var.mysql_config.db_port
     any_port = 0
     any_protocol = "-1"
     tcp_protocol = "tcp"

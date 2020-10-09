@@ -2,6 +2,19 @@ terraform {
     required_version = ">= 0.12"
 }
 
+data "aws_vpc" "default" {
+    default = true
+}
+
+# data "aws_subnet_ids" "all" {
+#     vpc_id = data.aws_vpc.default.id
+# }
+
+data "aws_security_group" "default" {
+    vpc_id = data.aws_vpc.default.id
+    name   = "default"
+}
+
 module "db" {
     source = "terraform-aws-modules/rds/aws"
     version = "~> 2.0"
@@ -27,6 +40,9 @@ module "db" {
     # subnet_ids = var.subnet_ids
     create_db_subnet_group = false
     db_subnet_group_name = "default"
+
+    # DB Security group
+    vpc_security_group_ids = [ data.aws_security_group.default.id ]
 
     # DB parameter group
     # family = "mysql5.7"
