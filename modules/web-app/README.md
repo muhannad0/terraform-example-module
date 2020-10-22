@@ -17,6 +17,7 @@ This is an example Terraform module that deploys an sample web application clust
 | max_size | The maximum number of instances to run in the cluster. | Yes | Number | *none* |
 | desired_capacity | The desired number of instances to run in the cluster. | Yes | Number | *none* |
 | mysql_config | The configuration details of the database service. Require values for { "db_address", "db_port" }. | Yes | Object | *none* |
+| mysql_credentials | The access credentials for the database service. Require values for { "db_name", "db_user", "db_password" }. | Yes | Object | *none* |
 | enable_autoscaling | Enable or disable autoscaling based on pre-defined rules. | No | Bool | False |
 | server_port | Port on which the web application service is running | No | Number | 8080 |
 | server_text | Custom text to be displayed on the main web page. | No | String | Hello World Default |

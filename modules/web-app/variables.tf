@@ -49,3 +49,13 @@ variable "mysql_config" {
     })
     default = null
 }
+
+variable "mysql_credentials" {
+    description = "The credentials to access the MySQL database."
+    type = object({
+      db_name = string
+      db_user = string
+      db_password = string
+    })
+    default = null
+}

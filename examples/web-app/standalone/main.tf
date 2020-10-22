@@ -21,4 +21,6 @@ module "web_app" {
     server_text = var.server_text
 
     mysql_config = var.mysql_config
+
+    mysql_credentials = var.mysql_credentials
 }

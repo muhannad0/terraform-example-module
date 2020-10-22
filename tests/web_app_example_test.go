@@ -29,6 +29,11 @@ func createWebAppOpts(t *testing.T, appDir string) *terraform.Options {
 				"db_address": "mock-address-for-test",
 				"db_port": 3306,
 			},
+      "mysql_credentials": map[string]interface{}{
+        "db_name": "mock-db-for-test",
+        "db_user": "testuser",
+        "db_password": "testpassword",
+      },
 		},
 	}
 }
@@ -115,7 +120,7 @@ func TestWebAppExample(t *testing.T) {
 	test_structure.RunTestStage(t, "validate_app", func() { validateApp(t, webAppExampleDir) })
 
 	// redeploy and validate the Web App
-	test_structure.RunTestStage(t, "redploy_app", func() { redeployApp(t, webAppExampleDir) })
+	test_structure.RunTestStage(t, "redeploy_app", func() { redeployApp(t, webAppExampleDir) })
 
 	// scale the Web App and verify
 	// test_structure.RunTestStage(t, "scale_app", func() { scaleApp(t, webAppExampleDir) })

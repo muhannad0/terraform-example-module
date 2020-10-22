@@ -23,6 +23,9 @@ data "template_file" "user_data" {
         server_port = var.server_port
         db_address = var.mysql_config.db_address
         db_port = var.mysql_config.db_port
+        db_name = var.mysql_credentials.db_name
+        db_user = var.mysql_credentials.db_user
+        db_password = var.mysql_credentials.db_password
     }
 }
 
