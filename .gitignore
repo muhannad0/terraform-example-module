@@ -35,3 +35,6 @@ Godeps/
 
 # Terratest files
 .test-data/
+
+# IDE files
+*.swp
