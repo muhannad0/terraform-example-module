@@ -22,6 +22,7 @@ n/a
 | ---- | ----------- |
 | db_address | DNS address of the database service |
 | db_port | Port on which database service is running |
+| db_security_group_id | The security group ID of the database service |
 
 
 *Note: This example will deploy real resources to your AWS account. We have made every effort so that the resources qualify for [AWS Free Tier](https://aws.amazon.com/free/), but we are not responsible for any charges you may incur.*

@@ -22,3 +22,4 @@ This is an example Terraform module that deploys an RDS MySQL instance to AWS.
 | ---- | ----------- |
 | db_address | DNS address of the database service |
 | db_port | Port on which database service is running |
+| db_security_group_id | The security group ID of the database service |
